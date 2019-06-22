@@ -11,9 +11,7 @@ class TypeAccommodationService {
         return TypeAccommodation.findById({ _id });
     }
 
-    public create(typeAccommodation) {
-        console.log(typeAccommodation);
-        
+    public create(typeAccommodation) {        
         return TypeAccommodation.create(typeAccommodation);
     }
 

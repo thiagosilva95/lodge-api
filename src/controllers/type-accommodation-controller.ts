@@ -4,15 +4,15 @@ import { Request, Response } from 'express';
 
 class TypeAccommodationController {
 
-    public get(req, res: Response): void {
+    public get(req: Request, res: Response): void {
         TypeAccommodationService.get()
             .then(typesAccommodations => {
-                res.sendStatus(httpStatus.OK).json(typesAccommodations);
+                res.status(httpStatus.OK).json(typesAccommodations);
             })
             .catch(error => console.error.bind(console, `Error ${error}`));
     }
 
-    public getById(req, res): void {
+    public getById(req: Request, res: Response): void {
 
     }
 
@@ -20,17 +20,29 @@ class TypeAccommodationController {
         let typeAccommodation = req.body;
         TypeAccommodationService.create(typeAccommodation)
             .then(typeAccommodation => {
-                res.sendStatus(httpStatus.CREATED).json({ result: 'Tipo de acomodação criado com sucesso' });
+                res.status(httpStatus.CREATED).json({ result: 'Tipo de acomodação criado com sucesso' });
             })
             .catch(error => console.error.bind(console, `Error ${error}`));
     }
 
-    public update(req, res): void {
+    public update(req: Request, res: Response): void {
+        let typeAccommodation = req.body;
+        const _id = req.params.id;
 
+        TypeAccommodationService.update(_id, typeAccommodation)
+            .then(typeAccommodation => {
+                res.status(httpStatus.OK).json({ result: 'Tipo de acomodação editada com sucesso' });
+            })
+            .catch(error => console.error.bind(console, `Error ${error}`));
     }
 
-    public delete(req, res): void {
-
+    public delete(req: Request, res: Response): void {
+        const _id = req.params.id;
+        TypeAccommodationService.delete(_id)
+            .then(() => {
+                res.status(httpStatus.OK).json({ result: 'Tipo de acomodação deletado com sucesso!' })
+            })
+            .catch(error => console.error.bind(console, `Error ${error}`));
     }
 }
 
