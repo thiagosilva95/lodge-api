@@ -13,7 +13,13 @@ class TypeAccommodationController {
     }
 
     public getById(req: Request, res: Response): void {
+        const _id = req.params.id;
 
+        TypeAccommodationService.getById(_id)
+            .then(typesAccommodations => {
+                res.status(httpStatus.OK).json(typesAccommodations);
+            })
+            .catch(error => console.error.bind(console, `Error ${error}`));
     }
 
     public create(req: Request, res: Response): void {
