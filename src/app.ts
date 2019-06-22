@@ -3,6 +3,8 @@ import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import * as compression from 'compression';
 
+import typeAccommodationRouter from './routes/type-accommodation-router';
+
 class App {
 
     public app: express.Application;
@@ -10,7 +12,7 @@ class App {
     constructor() {
         this.app = express();
         this.middleware();
-
+        this.routes();
     }
 
     enableCors(): void {
@@ -33,8 +35,9 @@ class App {
         this.app.route('/').get((req, res) => {
             res.send({ version: '1.0.0' });
         });
-    }
 
+        this.app.use('/api/v1/type-accommodation', typeAccommodationRouter);
+    }
 
 }
 

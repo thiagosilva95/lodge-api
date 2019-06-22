@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "set NODE_ENV=development&&nodemon --delay 5 dist/server",
+    "gulp": "node_modules/.bin/gulp"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +28,10 @@
     "@types/jsonwebtoken": "^8.3.2",
     "@types/mongoose": "^5.5.6",
     "@types/node": "^12.0.10",
-    "nodemon": "^1.19.1"
+    "gulp": "3.9.1",
+    "gulp-clean": "0.3.2",
+    "gulp-typescript": "3.2.2",
+    "nodemon": "^1.19.1",
+    "typescript": "^3.5.2"
   }
 }
