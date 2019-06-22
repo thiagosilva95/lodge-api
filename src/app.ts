@@ -4,13 +4,17 @@ import * as cors from 'cors';
 import * as compression from 'compression';
 
 import typeAccommodationRouter from './routes/type-accommodation-router';
+import Database from './config/db';
 
 class App {
 
     public app: express.Application;
-
+    private _db: Database
     constructor() {
         this.app = express();
+
+        this._db = new Database;
+        this._db.createConnection();
         this.middleware();
         this.routes();
     }
