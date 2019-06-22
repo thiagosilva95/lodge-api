@@ -9,7 +9,7 @@ const Guest = new mongoose.Schema({
     email: { type: String, required: true },
     occupation: { type: String, required: true },
     address: { type: String, required: true },
-    observation: { type: String, required: true },
+    observation: { type: String },
     active: {type: Boolean, required: true},
     createdAt: { type: Date, default: Date.now, required: true }
 });

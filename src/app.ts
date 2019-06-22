@@ -4,6 +4,9 @@ import * as cors from 'cors';
 import * as compression from 'compression';
 
 import typeAccommodationRouter from './routes/type-accommodation-router';
+import guestRouter from './routes/guest-router';
+import consumptionItemRouter from './routes/consumption-item-router';
+
 import Database from './config/db';
 
 class App {
@@ -40,7 +43,9 @@ class App {
             res.send({ version: '1.0.0' });
         });
 
-        this.app.use('/api/v1/type-accommodation', typeAccommodationRouter);
+        this.app.use('/api/v1/types-accommodation', typeAccommodationRouter);
+        this.app.use('/api/v1/guests', guestRouter);
+        this.app.use('/api/v1/consumption-items', consumptionItemRouter);
     }
 
 }
