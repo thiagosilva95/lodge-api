@@ -43,6 +43,7 @@ class ConsumptionItemController {
             })
             .catch(error => console.error.bind(console, `Error ${error}`));
     }
+    
 
     public delete(req: Request, res: Response): void {
         const _id = req.params.id;
