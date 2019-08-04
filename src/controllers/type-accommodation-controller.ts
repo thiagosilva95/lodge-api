@@ -12,6 +12,7 @@ class TypeAccommodationController {
             .catch(error => console.error.bind(console, `Error ${error}`));
     }
 
+    
     public getById(req: Request, res: Response): void {
         const _id = req.params.id;
 
