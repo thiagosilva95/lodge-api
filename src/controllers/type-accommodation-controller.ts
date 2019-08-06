@@ -13,6 +13,7 @@ class TypeAccommodationController {
     }
 
     
+    
     public getById(req: Request, res: Response): void {
         const _id = req.params.id;
 
