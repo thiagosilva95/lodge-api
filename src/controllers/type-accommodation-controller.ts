@@ -4,7 +4,6 @@ import { Request, Response } from 'express';
 
 class TypeAccommodationController {
 
-
     public get(req: Request, res: Response): void {
         TypeAccommodationService.get()
             .then(typesAccommodations => {
