@@ -3,6 +3,7 @@ import * as httpStatus from 'http-status';
 import { Request, Response } from 'express';
 
 class TypeAccommodationController {
+    
 
     public get(req: Request, res: Response): void {
         TypeAccommodationService.get()
